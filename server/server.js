@@ -74,19 +74,22 @@ app.get('/api/user-data', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy()
-    res.redirect('http://localhost:3001/')
+    res.redirect('http://localhost:3000/')
 })
 ///////// endpoints 
 
 app.get('/api/bikes', ctrl.getAllBikes)
 app.post('/api/bike', ctrl.addBike)
 app.get('/api/mybikes', ctrl.getMyBikes)
+app.get('/api/bike/:id', ctrl.getOneBike)
+
 
 app.delete('/api/bike/:id', ctrl.deleteBike)
 
 app.post('/api/cart', ctrl.addCart)
 app.get('/api/cart', ctrl.getCart)
 app.delete('/api/cart/:id', ctrl.deleteCart)
+app.delete('api/clearcart', ctrl.clearCart)
 
 
 ///////// STRIPE endpoint 

@@ -1,0 +1,73 @@
+.body {
+    
+    height: 100vh;
+    top: 0;
+    margin-top: -15px;
+    width: auto;
+    /* background-color: rgb(103, 202, 202); */
+    background-image: url('./bike-back.jpg');
+    /* background-attachment: scroll; */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  text-align: center;
+}
+
+.h{
+    font-weight: bold;
+    font-size: 75px;
+    /* height: 100px; */
+    font-family: cursive;
+    color: orange;
+    text-shadow: 1px 1px  black;
+    top: 8%;
+    position: relative;
+}
+
+
+
+.bike-logo {
+    position: relative;
+    height: 200px;
+    width: auto;
+    margin-top: 200px;
+    /* animation-name: bike; */
+    
+    animation: bike 5s ease-in-out infinite; 
+}
+@keyframes bike {
+    /* from{left: 0px;}
+    to{left: 100px;} */
+    0%{left: 0px; }
+    25%{left: 60px; }
+    50%{left: 0px; }
+    75%{left: -60px; }
+    100%{left: 0px;}
+}
+
+    .button {
+        background-color:transparent;
+        color: rgba(255, 255, 255, 0.877);
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border: 1px;
+        /* border-radius: 20%; */
+        font-family: sans-serif;
+        transition-duration: 0.4s;
+        /* font-weight: bold; */
+        text-transform: uppercase;
+        font-size: 20px;
+        border: 2px solid rgb(243, 237, 237);;
+        cursor: pointer;
+        letter-spacing: 2px;
+        
+    
+    }
+    .button:hover {
+        color: black;
+        background-color: goldenrod;
+        font-family: sans-serif;
+    }
+    

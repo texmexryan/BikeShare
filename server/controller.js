@@ -24,6 +24,19 @@ module.exports = {
     
     },
 
+    getOneBike: (req, res) => {
+        // console.log('shots fired')
+        const db = req.app.get('db')
+        let {id} = req.params
+        db.get_one_bike({id}).then(bike => {
+          // console.log(bike)
+          res.status(200).send(bike)
+        })
+        .catch(err => {
+          res.status(500).send(err)
+        })
+      },
+
     getMyBikes: (req, res) => {
         const db = req.app.get('db')
         let {id} = req.session.user
@@ -54,6 +67,7 @@ module.exports = {
     },
 
     deleteBike: (req, res) => {
+         console.log('shot fired!')
         let {id} = req.params
         const db = req.app.get('db')
         db.delete_bike({id})
@@ -81,11 +95,12 @@ module.exports = {
         })
     },
     getCart: (req, res) => {
+        // console.log(req.session.user.id)
         let id = req.session.user.id,
             db = req.app.get('db')
         db.get_cart({id})
         .then(items => {
-          // console.log(items)
+        //   console.log(items)
           res.status(200).send(items)
         })
         .catch(err => {
@@ -107,6 +122,17 @@ module.exports = {
             res.status(500).send(err)
         })
      },
+
+     clearCart: (req, res) => {
+         console.log('killshot')
+        let id = req.session.user.id,
+            db = req.app.get('db')
+    
+        db.clear_cart({id}).then(items => {
+          // console.log(items)
+          res.status(200).send(items)
+        })
+      },
 
       handlePayment: (req, res) => {
         const { amount, token:{id}} = req.body

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios'
-import logo from '../Auth/bike.png'
+// import Stripe from 'stripe'
+import logo from '../Auth/bike.svg'
 import {connect} from 'react-redux'
 import {addToCart} from '../../ducks/reducer'
-// import {connect} from 'react-redux'
-// import removeFromShopCart from '../../ducks/reducer'
+import {SweetAlert} from 'react-bootstrap-sweetalert'
 import './Cart.css'
 
 
@@ -16,10 +16,10 @@ class Cart extends Component {
         super(props)
             this.state = {
                 price: 0,
-                amount: 10,
+                amount: 0,
                 cartItems: [],
                 subtotal: 0,
-                fee: 5
+                fee: 10
                 
             }
         this.deleteCart = this.deleteCart.bind(this)
@@ -35,8 +35,8 @@ class Cart extends Component {
         cartItems.forEach(cartItem => {
             let cost = Number(cartItem.price)
             sub += cost
-            this.setState({subtotal: sub.toFixed(2)})
-            this.setState({amount: (sub + this.state.fee).toFixed(2)})
+            this.setState({subtotal: sub})
+            this.setState({amount: sub})
         })
     })
     }
@@ -56,9 +56,17 @@ class Cart extends Component {
 
     onToken = (token) => {
         token.card = void 0
-        axios.post('/api/payment', {token, amount: (this.state.amount + this.state.fee) * 100}).then(res => {
+        axios.post('/api/payment', {token, amount: this.state.amount * 100}).then(res => {
             console.log(res)
         })
+        axios.delete('/api/clearcart').then(res => {
+          if (!res.data[0]) {
+            addToCart(0)
+            this.componentDidMount()
+          }
+          
+        })
+    
     }
 
     // updateAmount(){
@@ -73,9 +81,9 @@ class Cart extends Component {
         return(
             <section key={i} className="basket">
             <p>Brand: {brand}</p>
-            <p>Rate Total: ${price}</p>
+            <p>Rate Per Day: ${price}</p>
             <img className="bike_img" src={image} alt="cart_bike" />
-            <button>Edit Quantity</button>
+            {/* <button>Edit Quantity</button> */} <br/>
             <button onClick={() => this.deleteCart(id)}>Delete Cart Item</button>
             </section>
         )
@@ -93,9 +101,9 @@ class Cart extends Component {
 
                 <div  className="checkout-summary">
                 <h3>Cart Summary</h3>
-                <h4>Subtotal:${subtotal}</h4>
-                <h4>Platform Fee: {fee} </h4>
-                <h4>Total:${amount}</h4>
+                <h4>Subtotal:${subtotal.toFixed(2)}</h4>
+                <h4>Platform Fee: {fee}% </h4>
+                <h4>Total:${(amount + (amount * .1)).toFixed(2)} </h4>
 
 
                 <StripeCheckout
@@ -104,7 +112,7 @@ class Cart extends Component {
                 image={logo}
                 token= {this.onToken}
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
-                amount={this.state.amount * 100}
+                amount={(amount + (amount * .1)) * 100}
             />
                 </div>            
             </div>

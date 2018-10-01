@@ -4,6 +4,7 @@ import Bike from '../Bike/Bike'
 import Profile from '../Profile/Profile'
 import {connect} from 'react-redux'
 import {addToCart} from '../../ducks/reducer'
+import './Dashboard.css'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Dashboard extends Component {
             itemsInCart: 0,
          }
         //  this.deleteBike = this.deleteBike.bind(this)
-         this.addCart = this.addCart.bind(this)
+        //  this.addCart = this.addCart.bind(this)
     }
 
     
@@ -27,14 +28,14 @@ class Dashboard extends Component {
         });
       }
 
-      addCart(id){
-        let {addToCart} = this.props
-        axios.post(`/api/cart`, {id})
-        .then((res) => {
-            console.log(res.data.length)
-            addToCart(res.data.length)
-        })
-        }
+    //   addCart(id){
+    //     let {addToCart} = this.props
+    //     axios.post(`/api/cart`, {id})
+    //     .then((res) => {
+    //         console.log(res.data.length)
+    //         addToCart(res.data.length)
+    //     })
+    //     }
 
       
 
@@ -62,7 +63,7 @@ class Dashboard extends Component {
                 
                 // location = {item.location}
                 // updateBike = {this.props.updateBike}
-                addBike = {this.addBike}
+                // addBike = {this.addBike}
                 deleteBike = {this.deleteBike}
                 addCart = {this.addCart}
                 />
@@ -71,18 +72,14 @@ class Dashboard extends Component {
         )
         })
         return ( 
-            <div>
-            <h3>
+            <div className = 'container'>
+            {/* <h3>
             AVAILABLE BIKES:
-            </h3>
+            </h3> */}
             <br/>
             
             {displayBikes}
-            <div>
-            {/* <Profile
-            deleteBike = {this.deleteBike}
-            /> */}
-            </div>
+           
             </div>
          )
     }

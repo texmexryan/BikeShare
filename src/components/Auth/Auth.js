@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import logo from './bike.png'
+import logo from './bike.svg'
+import './Auth.css'
 
 class Auth extends Component {
     constructor(props) {
@@ -18,11 +19,19 @@ class Auth extends Component {
 
     render() { 
         return ( 
-            <div>
-            <img src={logo} alt=""/>
+            <div className = "body">
+
+            <h1 className = 'h'>Welcome to Bike-Share!</h1>
+            
+            <img className = 'bike-logo' src={logo} alt="logo"/>
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
             <br/>
             
-            <button onClick = {this.login}>Please Login</button>
+            <button className = 'button' onClick = {this.login}> Login</button>
             </div>
          )
     }

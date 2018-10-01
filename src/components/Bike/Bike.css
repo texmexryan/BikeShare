@@ -1,0 +1,10 @@
+.bike-item {
+border: 5px blue;
+}
+
+
+.bike-img{
+    height: 250px;
+    width: auto;
+    border: 2px black;
+}

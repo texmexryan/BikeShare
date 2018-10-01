@@ -1,4 +1,24 @@
-.profile_img{
-    height:200px;
-    width:200px;
+.profile-box{
+    top: 200px;
+}
+
+.profile-info{
+    display: flex;
+    justify-content: center;
+    /* top: 100px; */
+    
+}
+
+.circle{
+    width: 250px;
+    /* position: absolute; */
+    /* top: 100px; */
+    transform: translateX(-50%)
+}
+
+.profile-img{
+    
+    width:100%;
+    border-radius: 50%;
+    border: 4px green;
 }

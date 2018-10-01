@@ -1,5 +1,99 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+
 .logo-header {
     
     height: 80px;
-    width: 120px;
+    width: 129px;
 }
+
+.nav {
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: linear-gradient( to right,
+    rgb(102, 195, 231), rgb(204, 204, 204)
+    );
+    padding: 7px;
+    z-index: 10;
+}
+.logo-header {
+    width: 114px;
+}
+    
+.nav-links {
+    width: 475px;
+    /* background-color: white; */
+    display: flex;
+    justify-content: space-between;
+    }
+    .nav-text {
+        position: relative;
+        top: 10px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
+        color: rgb(2, 11, 15);
+        font-size: 17px;
+        font-weight: bold;
+        /* text-shadow: 5px 5px 5px #090B09; */
+      }
+      
+      .nav-text:hover {
+        position: relative;
+        top: 8px;
+        /* text-decoration: none; */
+        text-transform: uppercase;
+        font-family: 'Raleway', sans-serif;
+        color: rgb(42, 154, 245);
+        font-size: 19px;
+        font-weight: bold;
+        border-bottom: solid 2px rgb(10, 103, 179);
+        display: inline;
+        padding-bottom: 1px;
+
+        /* text-shadow: 10px 10px 3px black, 0 0 60px #A1E88B, 0 0 5px  #8F938E ; */
+      }      
+      .nav-post:link, .nav-post:visited {
+        background-color: #71b6ee;
+        color: rgb(8, 2, 2);
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border: 1px black solid;
+        border-radius: 15%;
+        font-family: 'Raleway', sans-serif;
+        transition-duration: 0.4s;
+    }
+    
+    
+    .nav-post:hover, .nav-post:active {
+        background-color: rgb(4, 14, 17);
+        color: white; 
+        font-family: 'Raleway', sans-serif;
+
+    }
+    .cart-pic{
+        top: 3px;
+        height: 40px;
+        width: auto;
+        position: relative;
+    }
+    .cart-pic:hover{
+        top: 3px;
+        height: 42px;
+        width: auto;
+        position: relative;
+        box-shadow: 3px, 3px, 3px, 3px, rgb(180, 77, 77);
+
+    }
+    .cart-num{
+        position: relative;
+        right: 31px;
+        top: 14px;
+        font-size: 13px;
+        font-weight: bold;
+      }
