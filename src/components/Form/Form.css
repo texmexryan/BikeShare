@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
+
+.form {
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+
+
+input{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 12px 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(47, 36, 202);
+    border-radius: 4px;
+    font-size: 15px;
+}
+input:focus{
+    background-color: lightblue;
+}
+textarea:focus{
+    background-color: lightblue;
+}
+
+textarea {
+    width: 40%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(47, 36, 202);
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.label {
+    font-family: 'Roboto Slab', sans-serif;
+    position: relative;
+    left: 40%;
+    width: 20%;
+    /* text-align: center; */
+    background-color: gainsboro;
+    padding: 5px;
+    border: 1px black solid;
+    /* transform: translateX(17%) */
+
+}
+.button2 {
+    background-color: rgb(36, 87, 230);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 2px 2px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-family: 'Roboto Slab', sans-serif;
+    font-size: 16px;
+    width: 30%;
+}
+.button2:hover{
+    background-color: rgb(26, 52, 73);
+    box-shadow: 3px 3px gray;
+}
+
+.type{
+    width: 40%;
+    padding: 12px 20px;
+    margin: 13px 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(47, 36, 202);
+    border-radius: 4px;
+    font-size: 15px;
+    text-align: center;
+}

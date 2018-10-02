@@ -9,6 +9,7 @@ import Cart from './components/Cart/Cart'
 import BikeView from './components/Bike/BikeView'
 import About from './components/About/About'
 import Date from './components/Date/Date'
+import Image from './components/Form/Image'
 
 
 
@@ -26,6 +27,7 @@ export default (
 
 
     <Route path ='/date' component = {Date} />
+    <Route path ='/img' component = {Image} />
     {/* <Route path ='/bike' component = {Cart} /> */}
 
     {/* profile/:id */}

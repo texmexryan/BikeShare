@@ -35,8 +35,8 @@ class Cart extends Component {
         cartItems.forEach(cartItem => {
             let cost = Number(cartItem.price)
             sub += cost
-            this.setState({subtotal: sub})
-            this.setState({amount: sub})
+            this.setState({subtotal: sub, amount: sub})
+            
         })
     })
     }
@@ -57,7 +57,7 @@ class Cart extends Component {
     onToken = (token) => {
         token.card = void 0
         axios.post('/api/payment', {token, amount: this.state.amount * 100}).then(res => {
-            console.log(res)
+            // console.log(res)
         })
         axios.delete('/api/clearcart').then(res => {
           if (!res.data[0]) {
@@ -66,6 +66,14 @@ class Cart extends Component {
           }
           
         })
+
+        axios.post('/api/email').then(res => {
+            // console.log(res.data)
+            if (res.data) {
+              this.props.history.push('/dashboard')
+            }
+          })
+          alert('Confirmation email has been sent')
     
     }
 

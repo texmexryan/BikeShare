@@ -21,7 +21,7 @@ class Auth extends Component {
         return ( 
             <div className = "body">
 
-            <h1 className = 'h'>Welcome to Bike-Share!</h1>
+            <h1 className = 'hh'>Welcome to Bike-Share!</h1>
             
             <img className = 'bike-logo' src={logo} alt="logo"/>
             
@@ -31,7 +31,7 @@ class Auth extends Component {
             <br/>
             <br/>
             
-            <button className = 'button' onClick = {this.login}> Login</button>
+            <button className = 'button1' onClick = {this.login}> Login</button>
             </div>
          )
     }

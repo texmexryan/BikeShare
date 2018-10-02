@@ -1,11 +1,36 @@
+.body-dash{
+    background-image: url('./bike-dash.png');
+    background-repeat: repeat;
+    background-position: fixed;
+    /* background-size: auto; */
+    height: 100vh;
+    width: 100vw;
+
+    
+    
+}
+
 .container {
+margin-top: 78px;
 display: flex;
-/* position: absolute; */
-margin-top: 80px;
-background-color: #8F938E;
+/* position: relative; */
+  /* height: 100vh; */
+  /* background-size: cover; */
+  /* opacity: 0.5; */
 /* height: 100vh; */
-flex-direction: row;
-justify-content: center;
-align-content: space-between;
-flex-wrap: wrap;
+
+/* align-items: flex-start; */
+/* background-size: auto; */
+
+/* flex-wrap: wrap; */
+}
+
+
+.bikes {
+    display: flex;
+    flex-direction: row;
+justify-content: space-around ;
+/* margin: 10px; */
+flex-wrap: wrap; 
+
 }

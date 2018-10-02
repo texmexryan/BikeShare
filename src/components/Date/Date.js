@@ -1,58 +1,86 @@
-import React from 'react';
+import React, {Component} from 'react';
+import moment from 'moment';
 // import Helmet from 'react-helmet';
-import DayPicker, { DateUtils } from 'react-day-picker';
-import './Date.css';
+
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import 'react-day-picker/lib/style.css';
+import './Date.css'
+
+import { formatDate, parseDate } from 'react-day-picker/moment';
 
 export default class Date extends React.Component {
-  static defaultProps = {
-    numberOfMonths: 2,
-  };
   constructor(props) {
     super(props);
-    this.handleDayClick = this.handleDayClick.bind(this);
-    this.handleResetClick = this.handleResetClick.bind(this);
-    this.state = this.getInitialState();
-  }
-  getInitialState() {
-    return {
-      from: undefined,
-      to: undefined,
+    this.state = {
+        from: undefined,
+        to: undefined,
     };
+    this.handleFromChange = this.handleFromChange.bind(this);
+    this.handleToChange = this.handleToChange.bind(this);
   }
-  handleDayClick(day) {
-    const range = DateUtils.addDayToRange(day, this.state);
-    this.setState(range);
+  showFromMonth() {
+    const { from, to } = this.state;
+    if (!from) {
+      return;
+    }
+    if (moment(to).diff(moment(from), 'months') < 2) {
+      this.to.getDayPicker().showMonth(from);
+    }
   }
-  handleResetClick() {
-    this.setState(this.getInitialState());
+  handleFromChange(from) {
+    // Change the from date and focus the "to" input field
+    this.setState({ from });
+  }
+  handleToChange(to) {
+    this.setState({ to }, this.showFromMonth);
   }
   render() {
     const { from, to } = this.state;
     const modifiers = { start: from, end: to };
     return (
-      <div className="RangeExample">
-        <p>
-          {!from && !to && 'Please select the first day.'}
-          {from && !to && 'Please select the last day.'}
-          {from &&
-            to &&
-            `Selected from ${from.toLocaleDateString()} to
-                ${to.toLocaleDateString()}`}{' '}
-          {from &&
-            to && (
-              <button className="link" onClick={this.handleResetClick}>
-                Reset
-              </button>
-            )}
-        </p>
-        <DayPicker
-          className="Selectable"
-          numberOfMonths={this.props.numberOfMonths}
-          selectedDays={[from, { from, to }]}
-          modifiers={modifiers}
-          onDayClick={this.handleDayClick}
-        />
-        </div>
-    )
-    }
+        
+      <div className="InputFromTo">
+      <h2>Please Select Dates</h2>
+      <br/>
+        <DayPickerInput
+          value={from}
+          placeholder="From"
+          format="LL"
+          formatDate={formatDate}
+          parseDate={parseDate}
+          dayPickerProps={{
+            selectedDays: [from, { from, to }],
+            disabledDays: { after: to },
+            toMonth: to,
+            modifiers,
+            numberOfMonths: 2,
+            onDayClick: () => this.to.getInput().focus(),
+          }}
+          onDayChange={this.handleFromChange}
+        />{' '}
+        —{' '}
+        {/* <label>End</label> */}
+        <span className="InputFromTo-to">
+          <DayPickerInput
+            ref={el => (this.to = el)}
+            value={to}
+            placeholder="To"
+            format="LL"
+            formatDate={formatDate}
+            parseDate={parseDate}
+            dayPickerProps={{
+              selectedDays: [from, { from, to }],
+              disabledDays: { before: from },
+              modifiers,
+              month: from,
+              fromMonth: from,
+              numberOfMonths: 2,
+            }}
+            onDayChange={this.handleToChange}
+          />
+        </span>
+   
+      </div>
+    );
+  }
 }

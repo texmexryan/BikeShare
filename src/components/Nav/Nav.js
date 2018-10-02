@@ -41,7 +41,10 @@ let {itemsInCart} = this.props;
         return (
                 
     <div className = 'nav'>
+    <section>
     <img className ='logo-header' src={logo} alt=""/>
+    <h1 className = 'h'>BIKE-SHARE</h1>
+    </section>
     <div className = 'nav-links'>
 
     <Link className = 'nav-text' to = '/dashboard'> Home </Link>
@@ -50,13 +53,18 @@ let {itemsInCart} = this.props;
     <Link className = 'nav-text' to = '/profile'>Profile</Link>
     <br/>
 
-    <br/>
-
-    <br/>
-
+    
+    <div className= 'dropdown'>
     <Link className = 'nav-text' to = '/about'>About </Link>
-    <br/>
-{/* // {`/profile/${ownerId}`} */}
+    {/* <br/> */}
+        <div className = 'dropdown-content'>
+            <h2>How It works</h2>
+            
+            <h2>Policies</h2>
+
+        </div>
+
+    </div>
     
     
     <a className = 'nav-text' href="http://localhost:3000/logout">

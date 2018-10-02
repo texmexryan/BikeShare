@@ -1,9 +1,25 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway);
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
 
 .logo-header {
     
     height: 80px;
     width: 129px;
+    position: relative;
+}
+.h {
+    font-family: 'Audiowide', sans-serif;
+    position: relative;
+    font-size: 18px;
+    color: rgb(70, 68, 68);
+    text-decoration: none;
+    right: -5px;
+    background-color: #b6b5b1;
+    box-shadow: 4px 4px 2px cornflowerblue;
+    display: inline-flex;
+    bottom: 36px;
+    padding: 2px;
+
 }
 
 .nav {
@@ -16,28 +32,30 @@
     background-image: linear-gradient( to right,
     rgb(102, 195, 231), rgb(204, 204, 204)
     );
-    padding: 7px;
+    padding: 5px;
+    border-bottom: 2px solid rgba(0,0,0,0.2);
     z-index: 10;
 }
-.logo-header {
-    width: 114px;
-}
+
     
 .nav-links {
     width: 475px;
     /* background-color: white; */
     display: flex;
     justify-content: space-between;
+    
+
     }
     .nav-text {
         position: relative;
         top: 10px;
-        text-decoration: none;
+        text-decoration: none ;
         text-transform: uppercase;
         font-family: 'Raleway', sans-serif;
         color: rgb(2, 11, 15);
         font-size: 17px;
         font-weight: bold;
+       
         /* text-shadow: 5px 5px 5px #090B09; */
       }
       
@@ -73,7 +91,6 @@
     .nav-post:hover, .nav-post:active {
         background-color: rgb(4, 14, 17);
         color: white; 
-        font-family: 'Raleway', sans-serif;
 
     }
     .cart-pic{
@@ -97,3 +114,36 @@
         font-size: 13px;
         font-weight: bold;
       }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        border: 1px black;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        font-size: 16px;
+        font-family: 'Raleway', sans-serif;
+        top:40px;
+        background-color:whitesmoke;
+        min-width: 140px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        padding: 6px 3px;
+        border-bottom: 2px black;
+    }
+    /* h2{
+        border-bottom: 2px black;
+        display: none;
+    } */
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+        cursor: pointer;
+    }
+    .dropdown-content h2:hover {
+        background-color: #b4b3b3;
+        /* border: 1px black; */
+    }

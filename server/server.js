@@ -95,6 +95,9 @@ app.delete('api/clearcart', ctrl.clearCart)
 ///////// STRIPE endpoint 
 app.post('/api/payment', ctrl.handlePayment)
 
+///// send email endpoint
+app.post('/api/email', ctrl.sendEmail)
+
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on port: ${SERVER_PORT}`)

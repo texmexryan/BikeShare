@@ -1,5 +1,6 @@
 require('dotenv').config();
-const stripe = require('stripe')(process.env.STRIPE_SECRET)
+const stripe = require('stripe')(process.env.STRIPE_SECRET),
+nodemailer = require('nodemailer')
 
 module.exports = {
 
@@ -80,7 +81,7 @@ module.exports = {
           });
     },
 
-    addCart: (req,res,then) => {
+    addCart: (req,res) => {
         console.log(req.session.user.id)
         let user_id = req.session.user.id
         let bike_id = req.body.id
@@ -153,6 +154,34 @@ module.exports = {
                 }
             })
         },
+
+        sendEmail: (req, res) => {
+        let {EMAIL, EPW} = process.env
+        let transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: EMAIL,
+              pass: EPW,
+            }
+          });
+          
+          var mailOptions = {
+            from: 'bike-share@gmail.com',
+            to: 'texmexryan@gmail.com',
+            subject: 'RESERVATION CONFIRMED',
+            text: 'That was easy!'
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+                console.log('email sent')
+              res.status(200).send('Email sent');
+            }
+          })
+        },
+        
 
 
 }

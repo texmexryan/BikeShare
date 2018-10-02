@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { getUserData } from '../../ducks/reducer'
 import MyBike from '../Bike/MyBike'
+// import {addToCart} from '../../ducks/reducer'
 
 import './Profile.css'
 
@@ -79,11 +80,12 @@ class Profile extends Component {
                 {
                     username ? (
                         <div className='profile-info'>
-                            <p>Welcome {username}</p>
-                            <p>Email: {email}</p>
                             <div className ='circle'>
                                 <img className='profile-img' src={picture} alt="" />
                             </div>
+                            <p>Welcome {username}!</p>
+                            <br/>
+                            <p>Email: {email}</p>
                         </div>
                     ) : <p>Please log in</p>
 

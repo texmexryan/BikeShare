@@ -1,10 +1,33 @@
 .bike-item {
-border: 5px blue;
+border: 1px solid rgb(31, 34, 43);
+background-image: linear-gradient(to right, white,gray);
+text-align: center;
+padding: 5px;
+border-radius: 12px;
+margin: 20px;
 }
 
 
 .bike-img{
-    height: 250px;
+    text-align: center;
+    height: 200px;
     width: auto;
-    border: 2px black;
+    border: 2px solid  black;
+    border-radius: 6px;
+    /* padding: 5px; */
+}
+
+
+/* //////// Bike View Stylings */
+
+.bike-container{
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+    background-color: rgb(173, 171, 171);
+    width: 100%;
+    top: 140px;
+    padding: 15px;
+    /* left: 10%; */
+    position: relative;
 }
