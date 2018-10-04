@@ -66,6 +66,27 @@ module.exports = {
             res.status(500).send(err)
         })
     },
+    updateBike: (req, res) => {
+        let { brand, type, image, price, description, owner_id } = req.body;
+        let { id } = req.params;
+        // console.log('session', req.session)
+        // console.log('body', req.body)
+        const db = req.app.get('db');
+    
+        // if (user_id === req.session.user_id) {
+        db.update_my_bike({ brand, type, image, price, description, owner_id, id })
+          .then(bikes => {
+            res.status(200).send(bikes);
+          })
+          .catch(err => {
+            console.log(err);
+            res.status(500).send(err);
+          })
+        // }else {
+        //   res.status(500).send('not your post dingus')
+        // }
+      },
+    
 
     deleteBike: (req, res) => {
          console.log('shot fired!')
@@ -85,8 +106,9 @@ module.exports = {
         console.log(req.session.user.id)
         let user_id = req.session.user.id
         let bike_id = req.body.id
+        let {start_date, end_date} = req.body
         const db = req.app.get('db');
-        db.add_cart({user_id, bike_id})
+        db.add_cart({user_id, bike_id, start_date, end_date})
         .then(items => {
             console.log(items)
             res.status(200).send(items)
@@ -149,27 +171,34 @@ module.exports = {
                     console.log(err)
                     return res.status(500).send(err)
                 } else {
-                    console.log(charge)
+                    // console.log(charge)
                     return res.status(200).send(charge)
                 }
             })
         },
 
         sendEmail: (req, res) => {
+        let {username, email} = req.session.user
         let {EMAIL, EPW} = process.env
         let transporter = nodemailer.createTransport({
             service: 'gmail',
+            port: 25,
+            secure: false,
             auth: {
               user: EMAIL,
               pass: EPW,
+            },
+            tls: {
+                rejectUnauthorized: false,
             }
           });
           
           var mailOptions = {
-            from: 'bike-share@gmail.com',
-            to: 'texmexryan@gmail.com',
-            subject: 'RESERVATION CONFIRMED',
-            text: 'That was easy!'
+            from: 'bike-share@.com',
+            to: email,
+            subject: 'BIKE-SHARE: Reservation(s) Confirmed',
+            text: `Hello, ${username}! Your bike reservation is confirmed! Remember to get touch with the owner to arrange pick-up. Happy cycling!</h1>
+            Owner's contact information: phone & email.`
           };
           
           transporter.sendMail(mailOptions, function(error, info){

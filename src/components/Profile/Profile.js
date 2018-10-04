@@ -15,6 +15,7 @@ class Profile extends Component {
             bikes: []
         }
         this.deleteBike = this.deleteBike.bind(this)
+        this.updateBike = this.updateBike.bind(this)
     }
 
     async componentDidMount() {
@@ -32,6 +33,12 @@ class Profile extends Component {
             })
     }
 
+    updateBike(id, owner_id, brand, type, image, price, description ) {
+        axios.put(`/api/bike/${id}`, { brand: brand, owner_id: owner_id, type: type, image: image, price: price, description: description })
+        .then(res => {
+            this.setState({ bikes: res.data })
+      })
+    }
     deleteBike(id) {
         axios.delete(`/api/bike/${id}`)
             .then(res => {
@@ -46,12 +53,12 @@ class Profile extends Component {
     render() {
         let { bikes } = this.state;
         let { username, picture, email } = this.props.user
-        console.log(this.props.user)
+        // console.log(this.props.user)
         let displayMyBikes = bikes.map((item, index) => {
             let { id, owner_id, brand, price, image, type, description } = item
             // console.log(item)
             return (
-                <div key={index} className='mybike_container'>
+                <div key={index} >
                     <MyBike
 
                         id={id}
@@ -61,6 +68,7 @@ class Profile extends Component {
                         type={type}
                         description={description}
                         ownerId={owner_id}
+                        updateBike = {this.updateBike}
 
                         // location = {item.location}
                         // updateBike = {this.props.updateBike}
@@ -94,7 +102,7 @@ class Profile extends Component {
                 <button>Logout</button>
                 </a> */}
 
-                <section>
+                <section className='mybike-container'>
                     My Bikes:
                 <br />
                     {displayMyBikes}

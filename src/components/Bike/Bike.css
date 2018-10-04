@@ -29,5 +29,5 @@ margin: 20px;
     top: 140px;
     padding: 15px;
     /* left: 10%; */
-    position: relative;
+    position: fixed;
 }

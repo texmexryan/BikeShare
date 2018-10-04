@@ -22,7 +22,7 @@
 
 .InputFromTo{
   top: 250px;
-  left: 200px;
+  left: 150px;
     position: relative;
 }
 
@@ -43,7 +43,7 @@
     border-bottom-right-radius: 50% !important;
   }
   .InputFromTo .DayPickerInput-Overlay {
-    width: 550px;
+    width: 600px;
   }
   .InputFromTo-to .DayPickerInput-Overlay {
     margin-left: -198px;

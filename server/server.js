@@ -79,17 +79,18 @@ app.get('/logout', (req, res) => {
 ///////// endpoints 
 
 app.get('/api/bikes', ctrl.getAllBikes)
-app.post('/api/bike', ctrl.addBike)
 app.get('/api/mybikes', ctrl.getMyBikes)
 app.get('/api/bike/:id', ctrl.getOneBike)
+app.get('/api/cart', ctrl.getCart)
 
+app.post('/api/bike', ctrl.addBike)
+app.post('/api/cart', ctrl.addCart)
+
+app.put('/api/bike/:id', ctrl.updateBike)
 
 app.delete('/api/bike/:id', ctrl.deleteBike)
-
-app.post('/api/cart', ctrl.addCart)
-app.get('/api/cart', ctrl.getCart)
 app.delete('/api/cart/:id', ctrl.deleteCart)
-app.delete('api/clearcart', ctrl.clearCart)
+app.delete('/api/clearcart', ctrl.clearCart)
 
 
 ///////// STRIPE endpoint 

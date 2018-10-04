@@ -10,8 +10,8 @@ class BikeView extends Component {
         super(props);
         this.state = { 
             bike: [],
-            startDate: 0,
-            endDate: 0,
+            startDate: '',
+            endDate: '',
          }
          this.addCart = this.addCart.bind(this)
          this.handleSelect = this.handleSelect.bind(this)
@@ -28,7 +28,8 @@ class BikeView extends Component {
 
       addCart(id){
         let {addToCart} = this.props
-        axios.post(`/api/cart`, {id})
+        let {startDate, endDate} = this.state
+        axios.post(`/api/cart`, {id, start_date: startDate, end_date: endDate})
         .then((res) => {
             console.log(res.data.length)
             addToCart(res.data.length)
@@ -45,7 +46,7 @@ class BikeView extends Component {
     
     render() { 
         let {bike} = this.state;
-        console.log('hey this bike',bike)
+        console.log(this.state)
         let displayBike = bike.map((item, i) => {
         let {id, owner_id, brand, price, image, type, description} = item
         
@@ -61,8 +62,8 @@ class BikeView extends Component {
                 <h4>Description: {description}</h4>
                 <br/>
 
-                <input type="date" onChange={(event) => this.setState({startDate: event.target.value})}/>
-                <input type="date" onChange={(event) => this.setState({endDate: event.target.value})}/>
+                <input type="date" min ='10-10-2018' onChange={e => this.setState({startDate: e.target.value})}/>
+                <input type="date" onChange={e => this.setState({endDate: e.target.value})}/>
                     <br/>
                 <button className='button2' onClick={() => this.addCart(id)}>Add to Cart</button>
             </div>

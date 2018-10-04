@@ -19,7 +19,9 @@ create table bikes (
 create table cart (
   id serial primary key,
   user_id integer references users(id),
-  bike_id integer references bikes(id)
+  bike_id integer references bikes(id),
+  start_date text,
+  end_date text
 );
 
 

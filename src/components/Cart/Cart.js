@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios'
-// import Stripe from 'stripe'
 import logo from '../Auth/bike.svg'
+import removeX from './x-button.svg'
 import {connect} from 'react-redux'
 import {addToCart} from '../../ducks/reducer'
 import {SweetAlert} from 'react-bootstrap-sweetalert'
+import moment from 'moment'
 import './Cart.css'
 
 
@@ -15,7 +16,7 @@ class Cart extends Component {
     constructor(props){
         super(props)
             this.state = {
-                price: 0,
+                // price: 0,
                 amount: 0,
                 cartItems: [],
                 subtotal: 0,
@@ -25,21 +26,35 @@ class Cart extends Component {
         this.deleteCart = this.deleteCart.bind(this)
     }
 
-    componentDidMount(){
-        axios.get(`/api/cart`).then((res) =>{
-            this.setState({
-                cartItems: res.data,
+    async componentDidMount(){
+        // if (cartItems[0]) {
+            await axios.get(`/api/cart`).then((res) =>{
+            let sub = 0;
+            let copyCart = res.data.map(e=>{
+            let a = moment(e.start_date)
+            let b = moment(e.end_date)
+            e.time = b.diff(a, 'days')
+            e.total = e.time * e.price 
+            sub += e.total
+            return e;
             })
-        let {cartItems} = this.state
-        let sub = 0;
-        cartItems.forEach(cartItem => {
-            let cost = Number(cartItem.price)
-            sub += cost
-            this.setState({subtotal: sub, amount: sub})
-            
-        })
-    })
-    }
+
+            console.log(res.data)
+            this.setState({
+                cartItems: copyCart,
+                subtotal: sub,
+                amount: sub,
+            })
+        })}
+    //     let {cartItems} = this.state
+    //     cartItems.forEach(cartItem => {
+    //         let cost = Number(cartItem.price)
+    //         sub += cost
+    //         this.setState({subtotal: sub, amount: sub})
+        
+    //     })
+    // })
+
 
     deleteCart(id){
         let {addToCart} = this.props
@@ -48,18 +63,20 @@ class Cart extends Component {
             this.setState({
                 cartItems: res.data
             })
-            console.log(res.data.length)
+            // console.log(res.data.length)
             addToCart(res.data.length)
             this.componentDidMount()
         })
         }
 
     onToken = (token) => {
+        let {addToCart} = this.props;
         token.card = void 0
         axios.post('/api/payment', {token, amount: this.state.amount * 100}).then(res => {
             // console.log(res)
         })
         axios.delete('/api/clearcart').then(res => {
+            console.log(res.data)
           if (!res.data[0]) {
             addToCart(0)
             this.componentDidMount()
@@ -83,25 +100,36 @@ class Cart extends Component {
     
     render() {
         let {fee, amount, subtotal, cartItems} = this.state
+       
         // console.log(cartItems)
     let displayCart = cartItems.map((info, i) => {
-        const {brand, price, image, id} = info
+        const {brand, price, image, start_date, end_date, id} = info
+        
+    
+        
         return(
             <section key={i} className="basket">
+            <div className='img-brand'>
+                <img className="bike_img" src={image} alt="cart_bike" />
             <p>Brand: {brand}</p>
-            <p>Rate Per Day: ${price}</p>
-            <img className="bike_img" src={image} alt="cart_bike" />
-            {/* <button>Edit Quantity</button> */} <br/>
-            <button onClick={() => this.deleteCart(id)}>Delete Cart Item</button>
+            </div>
+            <p>Amount of Days: {info.time}</p>
+            <p>Total Cost: ${info.total}
+                
+            </p>
+            {/* <button>Edit Quantity</button> */} 
+            <div>
+            <img className='cart-delete' onClick={() => this.deleteCart(id)} src={removeX} alt="remove"/>
+            </div>
             </section>
         )
     })
     
         return (
             <div className="cart">
-                <h1>MY CART</h1>
+                {/* <h1>MY CART</h1> */}
             <div className="cart-table">
-                <h3>Selected Rentals:</h3>
+                <h1>Selected Rentals:</h1>
                 <div>
                     {displayCart}
                 </div>

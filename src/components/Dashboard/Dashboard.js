@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import Bike from '../Bike/Bike'
-import Profile from '../Profile/Profile'
+// import Profile from '../Profile/Profile'
 import { connect } from 'react-redux'
 import { addToCart } from '../../ducks/reducer'
 import './Dashboard.css'

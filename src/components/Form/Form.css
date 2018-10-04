@@ -1,14 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
-.form {
+.form-box {
     position: relative;
-    top: 100px;
+    top: 82px;
     text-align: center;
+    background-image: url('./bike-dash.png');
+    background-repeat: repeat;
+    background-position: center;
+    /* background-size: auto; */
+    height: 100vh; 
+    /* width: 100vw;  */
+    background-attachment: fixed;
 }
 
+.form{
+    position: relative;
+    top: 15px;
+}
 
-
-input{
+.fInput{
     width: 40%;
     padding: 12px 20px;
     margin: 12px 0;
@@ -18,7 +28,7 @@ input{
     border-radius: 4px;
     font-size: 15px;
 }
-input:focus{
+.fInput:focus{
     background-color: lightblue;
 }
 textarea:focus{
@@ -39,8 +49,9 @@ textarea {
 .label {
     font-family: 'Roboto Slab', sans-serif;
     position: relative;
-    left: 40%;
-    width: 20%;
+    /* top: 3%; */
+    left: 42%;
+    width: 15%;
     /* text-align: center; */
     background-color: gainsboro;
     padding: 5px;
@@ -65,6 +76,11 @@ textarea {
     background-color: rgb(26, 52, 73);
     box-shadow: 3px 3px gray;
 }
+.button2:active{
+    /* width: 29%;
+    height: auto; */
+    font-size: 15px;
+}
 
 .type{
     width: 40%;
@@ -76,4 +92,10 @@ textarea {
     border-radius: 4px;
     font-size: 15px;
     text-align: center;
+}
+.upload{
+    height: 40px;
+    width: 100vw;
+    border: 2px solid black;
+
 }

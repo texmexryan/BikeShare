@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import logo from './bike.svg'
+import logo from './generated.svg'
 import './Auth.css'
 
 class Auth extends Component {
@@ -21,7 +21,7 @@ class Auth extends Component {
         return ( 
             <div className = "body">
 
-            <h1 className = 'hh'>Welcome to Bike-Share!</h1>
+            <h1 className = 'hh'>Welcome to BIKE-SHARE</h1>
             
             <img className = 'bike-logo' src={logo} alt="logo"/>
             
@@ -29,6 +29,7 @@ class Auth extends Component {
             <br/>
             <br/>
             <br/>
+            <h2 className='greet'>Login below to find a ride!</h2>
             <br/>
             
             <button className = 'button1' onClick = {this.login}> Login</button>

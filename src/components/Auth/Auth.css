@@ -1,25 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
 .body {
     
     height: 100vh;
     top: 0;
-    margin-top: -15px;
-    width: auto;
-    /* background-color: rgb(103, 202, 202); */
-    background-image: url('./bike-back.jpg');
+    margin-top: -16px;
+    /* width: auto; */
+   
+    background-image: url('./new-background.jpg');
     /* background-attachment: scroll; */
+    
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-size: cover;
   text-align: center;
 }
 
 .hh{
     font-weight: bold;
-    font-size: 75px;
+    font-size: 45px;
     /* height: 100px; */
-    font-family: cursive;
-    color: orange;
-    text-shadow: 1px 1px  black;
+    font-family: 'Audiowide', serif;
+    color: rgb(239, 240, 243);
+    text-shadow: 2px 2px  black;
     top: 8%;
     position: relative;
 }
@@ -30,7 +33,7 @@
     position: relative;
     height: 200px;
     width: auto;
-    margin-top: 200px;
+    margin-top: 194px;
     /* animation-name: bike; */
     
     animation: bike 5s ease-in-out infinite; 
@@ -47,7 +50,7 @@
 
     .button1 {
         background-color:transparent;
-        color: rgba(255, 255, 255, 0.877);
+        color: rgba(24, 21, 21, 0.877);
         padding: 16px;
         text-align: center;
         text-decoration: none;
@@ -56,18 +59,32 @@
         /* border-radius: 20%; */
         font-family: sans-serif;
         transition-duration: 0.4s;
-        /* font-weight: bold; */
+        font-weight: bold;
         text-transform: uppercase;
-        font-size: 20px;
-        border: 2px solid rgb(243, 237, 237);;
+        font-size: 18px;
+        border: 2px solid rgb(49, 48, 48);;
         cursor: pointer;
         letter-spacing: 2px;
+        
         
     
     }
     .button1:hover {
-        color: black;
-        background-color: goldenrod;
+        
+        color: rgb(250, 245, 245);
+        background-color: rgb(49, 49, 49);
         font-family: sans-serif;
+        border: 2x solid rgb(218, 214, 214);
     }
     
+.greet{
+    text-transform: uppercase;
+    font-family: sans-serif;
+    background-color: rgb(248, 255, 255, 0.65);
+    padding:5px;
+    
+    width: 34%;
+    transform: translate(98%);
+    border-radius: 8px 
+    /* text-align: center; */
+}

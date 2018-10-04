@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import {Link} from 'react-router-dom'
+import ImageUploader from 'react-images-upload';
 import './Form.css'
 import Image from './Image'
 
@@ -21,13 +23,11 @@ class Dashboard extends Component {
             submitDisabled: true
 
          }
-        //  this.handleChangeBrand = this.handleChangeBrand.bind(this)
-        //  this.handleChangeType = this.handleChangeType.bind(this)
-        //  this.handleChangeImage = this.handleChangeImage.bind(this)
-        //  this.handleChangePrice = this.handleChangePrice.bind(this)
-        //  this.handleChangeDesc = this.handleChangeDesc.bind(this)
+        
          this.handleChange = this.handleChange.bind(this)
          this.addBike = this.addBike.bind(this)
+         this.onDrop = this.onDrop.bind(this);
+
 
     }
     
@@ -36,60 +36,7 @@ class Dashboard extends Component {
             [e.target.name]:e.target.value
         })
     }
-    // handleChangeBrand (e) {
-    //     let brandValid = e.target.value ? true : false
-        
-    //     let submitValid = this.state.brandValid && this.state.typeValid && this.state.imageValid && this.state.priceValid && this.state.descValid
-    //     this.setState({
-    //         bBrand: e.target.value,
-    //         brandValid: brandValid,
-    //         submitDisabled: !submitValid
-    //         // [val.target.name]: val.target.value,   
-    //     })    
-    // }
-    // handleChangeType (e) {
-    //     let typeValid = e.target.value ? true : false
-        
-    //     let submitValid = this.state.brandValid && this.state.typeValid && this.state.imageValid && this.state.priceValid && this.state.descValid
-    //     this.setState({
-    //         bType: e.target.value,
-    //         typeValid:typeValid,
-    //         submitDisabled: !submitValid
-    //         // [val.target.name]: val.target.value,   
-    //     })    
-    // }
-    // handleChangeImage (e) {
-    //     let imageValid = e.target.value ? true : false
-    //     let submitValid = this.state.brandValid && this.state.typeValid && this.state.imageValid && this.state.priceValid && this.state.descValid
-    //     this.setState({
-    //         bImage: e.target.value,
-    //         imageValid: imageValid,
-    //         submitDisabled: !submitValid
-    //         // [val.target.name]: val.target.value,   
-    //     })    
-    // }
-    // handleChangePrice (e) {
-        
-    //     let priceValid = e.target.value ? true : false
-    //     let submitValid = this.state.brandValid && this.state.typeValid && this.state.imageValid && this.state.priceValid && this.state.descValid
-    //     this.setState({
-    //         bPrice: e.target.value,
-    //         priceValid: priceValid,
-    //         submitDisabled: !submitValid
-    //         // [val.target.name]: val.target.value,   
-    //     })    
-    // }
-    // handleChangeDesc (e) {
-        
-    //     let descValid = e.target.value ? true : false
-    //     let submitValid = this.state.brandValid && this.state.typeValid && this.state.imageValid && this.state.priceValid && this.state.descValid
-    //     this.setState({
-    //         bDescription: e.target.value,
-    //         descValid: descValid,
-    //         submitDisabled: !submitValid
-    //         // [val.target.name]: val.target.value,   
-    //     })    
-    // }
+    
     
 
     addBike (){
@@ -100,60 +47,93 @@ class Dashboard extends Component {
         })})
         
       }
-   
-    
-    
+      onDrop(pic) {
+          this.setState({
+              bImage: this.state.bImage
+            });
+            console.log(this.state.bImage)
+    }
+    handleForm = () => {
+        alert('Please fill out form completely.')
+
+    }
     
     
     render() { 
-        // console.log('here is props', this.props, 'this is state', this.state)
+        console.log('here is props', this.props, 'this is state', this.state)
         return ( 
-            <div className='form'>   
-                <div>
+            <div className='form-box'>   
+                <div className = 'form'>
+                    <div>
+                        <h4 className = 'label'>Image URL:</h4>
+                        <input
+                            className = 'fInput'
+                            value = {this.state.bImage}
+                            onChange = {this.handleChange} 
+                            name = 'bImage'/>
+                    </div>
                     <h4 className = 'label'>Bike Brand:</h4>
                     <input
+                        className = 'fInput'
                         value = {this.state.bBrand}
                         onChange = {this.handleChange} 
                         name = 'bBrand'/>
-                </div>
+                
                 <div>
                     <h4 className = 'label'>Bike Type:</h4>
-                    {/* <select className="type" onChange = {this.handleChangeType} name="bType" >
-                        <option value={this.state.bType}>Street Bike</option>
-                        <option value={this.state.bType}>Mountain Bike</option>
-                        <option value={this.state.bType}>Tandem</option>
-                    </select> */}
-                    <input
+                    <select name='bType' className="type" onChange = {this.handleChange} name="bType" >
+                        <option value=''></option>
+                        <option value='Street Bike'>Street Bike</option>
+                        <option value='Mountain Bike'>Mountain Bike</option>
+                        <option value='Tandem'>Tandem</option>
+                        <option value='Other'>Other</option>
+                    </select>
+                    {/* <input
                         value = {this.state.bType}
                         onChange = {this.handleChange} 
-                        name = 'bType'/>
-                </div>
-                <div>
-                    <h4 className = 'label'>Image URL:</h4>
-                    <input
-                        value = {this.state.bImage}
-                        onChange = {this.handleChange} 
-                        name = 'bImage'/>
+                        name = 'bType'/> */}
                 </div>
                 <div>
                     <h4 className = 'label'>Bike Rental Price:</h4>
                     <input
+                        className = 'fInput'
                         value = {this.state.bPrice}
                         onChange = {this.handleChange} 
                         name = 'bPrice'/>
                 </div>
                 <div>
                     <h4 className = 'label'>Bike Description:</h4>
-                    <textarea  rows="10" cols="10"
+                    <textarea  rows="7" cols="10"
                         value = {this.state.bDescription}
                         onChange = {this.handleChange} 
                         name = 'bDescription'/>
                 </div>
-                <Image
-                bImage = {this.state.bImage}
-                />
+                <div>
+            <ImageUploader
+                	withIcon={true}
+                	buttonText='Choose images'
+                	onChange={this.onDrop}
+                	imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    value = {this.state.bImage}
+                    // value={this.props.bImage}
+                    name = 'bImage'
+            />
+			
+			
+			</div>
                 <br/>
-                <button className = 'button2' /*disabled = {this.state.submitDisabled}*/ onClick = {this.addBike}>List Your Ride!</button>
+            { 
+            this.state.bBrand.length > 0 && this.state.bImage.length > 0 && this.state.bPrice.length > 0 && this.state.bImage.length > 0 && this.state.bType.length > 0
+            ?
+            // (<img className='upload' src={this.state.bImage} alt="preview"/>)
+            <Link to = './dashboard'><button className = 'button2'  onClick = {this.addBike}>List Your Ride!</button></Link>
+            :
+            <button className = 'button2'  onClick = {this.handleForm}>List Your Ride!</button>
+                // (null) 
+                
+            }
+            </div>
             </div>
          )
     }

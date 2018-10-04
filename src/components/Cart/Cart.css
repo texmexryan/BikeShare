@@ -1,16 +1,55 @@
 .cart{
-    text-align: center;
+    /* text-align: center; */
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-content: space-around;
+    /* justify-content: space-around; */
+    top: 100px;
 }
 
 .cart-table{
-text-align: center;
+    text-align: center;
+    /* justify-content: center; */
+    /* display: flex;
+    flex-direction: column; */
+}
+.cart-summary{
+position: relative;
+/* text-align: center; */
+border: 1px black solid;
 }
 
 .basket{
 border: solid black 1px;
+display: flex;
+justify-content: space-around;
+align-items: center;
+
+}
+.img-brand{
+position: relative;
+text-align: center;
+border: 1px solid black;
+margin: 5px;
+padding: 2px;
+
+
+}
+.cart-delete{
+/* position: relative; */
+width: auto;
+height: 35px;
+cursor: pointer;
+}
+.cart-delete:active {
+    height: 33px;
+}
+.cart-delete:hover{
+    opacity: .72;
 }
 
 .bike_img{
-    height:200px;
-    width:200px;
+    height:160px;
+    width:auto;
 }

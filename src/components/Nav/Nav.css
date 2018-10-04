@@ -77,13 +77,14 @@
       .nav-post:link, .nav-post:visited {
         background-color: #71b6ee;
         color: rgb(8, 2, 2);
-        padding: 16px;
+        padding: 12px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
         border: 1px black solid;
         border-radius: 15%;
         font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
         transition-duration: 0.4s;
     }
     
@@ -109,6 +110,7 @@
     }
     .cart-num{
         position: relative;
+        text-decoration: none;
         right: 31px;
         top: 14px;
         font-size: 13px;
