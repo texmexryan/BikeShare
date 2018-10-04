@@ -8,7 +8,7 @@ const ctrl = require('./controller')
 
 const app = express()
 app.use(bodyParser.json())
-app.use( express.static( `${__dirname}/../build` ) );
+app.use(express.static(`${__dirname}/../build`));
 
 const {
     SERVER_PORT,
@@ -30,7 +30,7 @@ app.use(session({
     resave: false,
     saveUninitialized: true
 }))
-app.get('/auth/callback', async (req,res) => {
+app.get('/auth/callback', async (req, res) => {
     //code --> req.query.code
     let payload = {
         client_id: REACT_APP_CLIENT_ID,
@@ -46,13 +46,13 @@ app.get('/auth/callback', async (req,res) => {
 
 
     const db = req.app.get('db')
-    const {email, name, picture, sub} = userRes.data
+    const { email, name, picture, sub } = userRes.data
     // above this point is basically Auth0 process
 
     let foundUser = await db.find_user([sub])   //db queries return an array of object(s).. array with one object this case
-    if (foundUser[0]){
+    if (foundUser[0]) {
         req.session.user = foundUser[0]
-    }else {
+    } else {
         let createdUser = db.create_user([name, email, picture, sub])
         // [ {name, email, picture, auth_id....} ]
         req.session.user = createdUser[0]
@@ -67,9 +67,9 @@ app.get('/auth/callback', async (req,res) => {
 
 app.get('/api/user-data', (req, res) => {
     // console.log(req.session.user)
-    if (req.session.user){
+    if (req.session.user) {
         res.status(200).send(req.session.user)
-    }else {
+    } else {
         res.status(401).send('Please log in.')
     }
 })
@@ -104,4 +104,4 @@ app.post('/api/email', ctrl.sendEmail)
 
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on port: ${SERVER_PORT}`)
-    })
+})
