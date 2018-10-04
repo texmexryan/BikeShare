@@ -8,6 +8,7 @@ const ctrl = require('./controller')
 
 const app = express()
 app.use(bodyParser.json())
+app.use( express.static( `${__dirname}/../build` ) );
 
 const {
     SERVER_PORT,
@@ -16,6 +17,7 @@ const {
     REACT_APP_CLIENT_ID,
     CLIENT_SECRET,
     CONNECTION_STRING,
+    REACT_APP_LOGOUT
     // ENVIRONMENT,
 
 } = process.env;
@@ -74,7 +76,7 @@ app.get('/api/user-data', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy()
-    res.redirect('http://localhost:3000/')
+    res.redirect(REACT_APP_LOGOUT)
 })
 ///////// endpoints 
 

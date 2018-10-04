@@ -33,11 +33,11 @@ class Profile extends Component {
             })
     }
 
-    updateBike(id, owner_id, brand, type, image, price, description ) {
+    updateBike(id, owner_id, brand, type, image, price, description) {
         axios.put(`/api/bike/${id}`, { brand: brand, owner_id: owner_id, type: type, image: image, price: price, description: description })
-        .then(res => {
-            this.setState({ bikes: res.data })
-      })
+            .then(res => {
+                this.setState({ bikes: res.data })
+            })
     }
     deleteBike(id) {
         axios.delete(`/api/bike/${id}`)
@@ -68,7 +68,7 @@ class Profile extends Component {
                         type={type}
                         description={description}
                         ownerId={owner_id}
-                        updateBike = {this.updateBike}
+                        updateBike={this.updateBike}
 
                         // location = {item.location}
                         // updateBike = {this.props.updateBike}
@@ -82,31 +82,28 @@ class Profile extends Component {
             )
         })
         return (
-            <div className = 'profile-box'>
-                <h1>Profile Page:</h1>
-                <hr />
+            <div className='profile-box'>
                 {
                     username ? (
                         <div className='profile-info'>
-                            <div className ='circle'>
+                            <div className='circle'>
                                 <img className='profile-img' src={picture} alt="" />
                             </div>
+                                <div className = 'pp'>
                             <p>Welcome {username}!</p>
-                            <br/>
+                            
                             <p>Email: {email}</p>
+                            </div>
                         </div>
                     ) : <p>Please log in</p>
 
                 }
-                {/* <a href="http://localhost:3000/logout">
-                <button>Logout</button>
-                </a> */}
+                
 
                 <section className='mybike-container'>
-                    My Bikes:
-                <br />
+
+                    <br />
                     {displayMyBikes}
-                    {/* <button onClick = {this.deleteBike}>Delete</button> */}
                 </section>
 
             </div>

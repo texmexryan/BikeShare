@@ -67,7 +67,7 @@ let {itemsInCart} = this.props;
     </div>
     
     
-    <a className = 'nav-text' href="http://localhost:3000/logout">
+    <a className = 'nav-text' href={process.env.REACT_APP_LOGOUT}>
     Logout
     </a>
     
