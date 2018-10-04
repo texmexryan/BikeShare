@@ -194,7 +194,7 @@ module.exports = {
           });
           
           var mailOptions = {
-            from: 'bike-share@.com',
+            from: 'bike-share@gmail.com',
             to: email,
             subject: 'BIKE-SHARE: Reservation(s) Confirmed',
             text: `Hello, ${username}! Your bike reservation is confirmed! Remember to get touch with the owner to arrange pick-up. Happy cycling!</h1>
