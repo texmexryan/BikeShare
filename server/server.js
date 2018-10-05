@@ -38,7 +38,7 @@ app.get('/auth/callback', async (req, res) => {
         client_secret: CLIENT_SECRET,
         code: req.query.code,
         grant_type: 'authorization_code',
-        redirect_uri: `${AUTH_PROTOCOL}://localhost:3000/auth/callback` //is localhost:3005  just using js to refer to it
+        redirect_uri: `${AUTH_PROTOCOL}://${req.headers.host}/auth/callback` //is localhost:3005  just using js to refer to it
     }
     //post request with code for token
     let tokenRes = await axios.post(`https://${REACT_APP_DOMAIN}/oauth/token`, payload)
