@@ -67,24 +67,24 @@ module.exports = {
         })
     },
     updateBike: (req, res) => {
-        let { brand, type, image, price, description, owner_id } = req.body;
+        console.log('fired')
+        let { brand, type, image, price, description,owner_id } = req.body;
         let { id } = req.params;
+        // let owner_id = req.session.user.id
         // console.log('session', req.session)
         // console.log('body', req.body)
         const db = req.app.get('db');
     
-        // if (user_id === req.session.user_id) {
         db.update_my_bike({ brand, type, image, price, description, owner_id, id })
           .then(bikes => {
+            //   console.log('saveeeeeee',bikes)
             res.status(200).send(bikes);
           })
           .catch(err => {
             console.log(err);
             res.status(500).send(err);
           })
-        // }else {
-        //   res.status(500).send('not your post dingus')
-        // }
+        
       },
     
 
@@ -117,13 +117,14 @@ module.exports = {
             res.status(500).send(err)
         })
     },
-    getCart: (req, res) => {
+    getCart: (req, res, next) => {
         // console.log(req.session.user.id)
         let id = req.session.user.id,
             db = req.app.get('db')
+        // if ()
         db.get_cart({id})
         .then(items => {
-        //   console.log(items)
+          console.log('carttttttttt')
           res.status(200).send(items)
         })
         .catch(err => {

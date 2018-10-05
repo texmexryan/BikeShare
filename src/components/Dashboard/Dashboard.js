@@ -18,8 +18,8 @@ class Dashboard extends Component {
     }
 
 
-    componentDidMount() {
-        axios.get('/api/bikes')
+    async componentDidMount() {
+       await axios.get('/api/bikes')
             .then(res => {
                 // console.log(res.data)
                 this.setState({
@@ -74,13 +74,13 @@ class Dashboard extends Component {
         return (
         <div className = 'body-dash'>
 
-            <div className='container'>
+            {/* <div className='container'> */}
                 <div className='bikes'>
 
                     {displayBikes}
                 </div>
 
-            </div>
+            {/* </div> */}
         </div>
         )
     }

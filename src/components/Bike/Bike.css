@@ -4,13 +4,13 @@ background-image: linear-gradient(to right, white,gray);
 text-align: center;
 padding: 5px;
 border-radius: 12px;
-margin: 20px;
+margin: 14px;
 }
 
 
 .bike-img{
     text-align: center;
-    height: 200px;
+    height: 180px;
     width: auto;
     border: 2px solid  black;
     border-radius: 6px;
@@ -25,18 +25,82 @@ margin: 20px;
     /* justify-content: center; */
     text-align: center;
     background-color: rgb(173, 171, 171);
-    width: 100%;
-    top: 140px;
-    padding: 15px;
-    /* left: 10%; */
-    position: fixed;
+    width: 100vw;
+    top: 100px;
+    padding: 10px;
+    height: 30%;
+    position: relative;
 }
+.date-input{
+    width: 30%;
+    padding: 12px 20px;
+    margin: 12px 12px;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    border: 2px solid rgb(47, 36, 202);
+    border-radius: 4px;
+    font-size: 15px;
+}
+.single-bike{
+    border: 1px dotted black;
+    padding: 10px;
+}
+.single-info{
+    /* display: flex;
+    flex-direction: column; */
+    padding: 8px;
+    line-height: 18px;
+    
+}
+        .pick-dates-text{
+            position: relative;
+            /* z-index: 3; */
+            text-transform: uppercase;
+            font-weight: 200;
+            color: rgb(35, 155, 20);
+            margin-bottom: 20px;
+                        
+        }
 
 
 
 /* ///////////////  My Bike */
 
-.myBike{
+.mybike{
     border: black 1px solid;
+    background-color: rgba(0, 217, 255, 0.479);
     padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
+.mybike-img{
+    width: 30%;
+    height: auto;
+    border: 2px solid black;
+    
+    }
+    .bike-values{
+        
+
+        padding: 6px;
+    }
+    .my-btns{
+        
+    background-color: #71b6ee;
+    color: rgb(8, 2, 2);
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border: 1px black solid;
+    border-radius: 15%;
+    font-family: 'Raleway', sans-serif;
+    text-transform: uppercase;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    }
+    .my-btns:hover{
+        box-shadow: 5px 5px rgb(77, 51, 51);
+    }

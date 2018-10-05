@@ -1,0 +1,8 @@
+.about-container{
+    border: 1px solid black;
+    padding: 10px;
+    color: black;
+    background-color: bisque;
+    top: 50%;
+    left: 50%;
+}

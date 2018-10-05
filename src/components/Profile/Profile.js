@@ -21,14 +21,14 @@ class Profile extends Component {
     async componentDidMount() {
 
         let res = await axios.get('/api/user-data')
-        console.log(res)
+        // console.log(res)
         //use action creator to update redux store
         this.props.getUserData(res.data)
 
 
         axios.get('/api/mybikes')
             .then(res => {
-                console.log(res.data)
+                // console.log(res.data)
                 this.setState({ bikes: res.data })
             })
     }
@@ -36,6 +36,7 @@ class Profile extends Component {
     updateBike(id, owner_id, brand, type, image, price, description) {
         axios.put(`/api/bike/${id}`, { brand: brand, owner_id: owner_id, type: type, image: image, price: price, description: description })
             .then(res => {
+                // console.log(res.data)
                 this.setState({ bikes: res.data })
             })
     }
@@ -89,22 +90,25 @@ class Profile extends Component {
                             <div className='circle'>
                                 <img className='profile-img' src={picture} alt="" />
                             </div>
-                                <div className = 'pp'>
+                                {/* <div className = 'pp'> */}
                             <p>Welcome {username}!</p>
                             
                             <p>Email: {email}</p>
-                            </div>
+                            
+                            
                         </div>
-                    ) : <p>Please log in</p>
+                        
+                    ) : <p className='login-msg' >Please log in! </p>
+                    
 
                 }
                 
 
-                <section className='mybike-container'>
+                <div className='mybike-container'>
 
-                    <br />
+                    
                     {displayMyBikes}
-                </section>
+                </div>
 
             </div>
         )

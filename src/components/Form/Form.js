@@ -3,7 +3,7 @@ import axios from 'axios'
 import {Link} from 'react-router-dom'
 import ImageUploader from 'react-images-upload';
 import './Form.css'
-import Image from './Image'
+// import Image from './Image'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class Dashboard extends Component {
     addBike (){
         axios.post('/api/bike', {bBrand: this.state.bBrand, bType: this.state.bType, bImage: this.state.bImage, bPrice: this.state.bPrice, bDescription:this.state.bDescription })
         .then(res => {
-            console.log(res.data)
+            // console.log(res.data)
         this.setState({bikes: res.data,
         })})
         

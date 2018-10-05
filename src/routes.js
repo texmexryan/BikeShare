@@ -4,7 +4,6 @@ import Auth from './components/Auth/Auth'
 import Dashboard from './components/Dashboard/Dashboard'
 import Profile from './components/Profile/Profile'
 import Form from './components/Form/Form'
-import Bike from './components/Bike/Bike'
 import Cart from './components/Cart/Cart'
 import BikeView from './components/Bike/BikeView'
 import About from './components/About/About'
@@ -22,7 +21,7 @@ export default (
     <Route path = '/new' component = {Form} />
     <Route  path = '/bike/:id' component = {BikeView} />
     <Route path ='/cart' component = {Cart} />
-    <Route path ='/about' component = {About} />
+    <Route path ='/about/howitworks' component = {About} />
 
 
     <Route path ='/img' component = {Image} />

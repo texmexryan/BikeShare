@@ -58,7 +58,7 @@ let {itemsInCart} = this.props;
     <Link className = 'nav-text' to = '/about'>About </Link>
     {/* <br/> */}
         <div className = 'dropdown-content'>
-            <h2>How It works</h2>
+           <Link to='/about/howitworks' ><h2>How It works</h2></Link>
             
             <h2>Policies</h2>
 

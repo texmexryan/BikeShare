@@ -5,7 +5,7 @@ import logo from '../Auth/bike.svg'
 import removeX from './x-button.svg'
 import {connect} from 'react-redux'
 import {addToCart} from '../../ducks/reducer'
-import {SweetAlert} from 'react-bootstrap-sweetalert'
+// import {SweetAlert} from 'react-bootstrap-sweetalert'
 import moment from 'moment'
 import './Cart.css'
 
@@ -39,21 +39,13 @@ class Cart extends Component {
             return e;
             })
 
-            console.log(res.data)
+            // console.log(res.data)
             this.setState({
                 cartItems: copyCart,
                 subtotal: sub,
                 amount: sub,
             })
         })}
-    //     let {cartItems} = this.state
-    //     cartItems.forEach(cartItem => {
-    //         let cost = Number(cartItem.price)
-    //         sub += cost
-    //         this.setState({subtotal: sub, amount: sub})
-        
-    //     })
-    // })
 
 
     deleteCart(id){
@@ -117,7 +109,6 @@ class Cart extends Component {
             <p>Total Cost: ${info.total}
                 
             </p>
-            {/* <button>Edit Quantity</button> */} 
             <div>
             <img className='cart-delete' onClick={() => this.deleteCart(id)} src={removeX} alt="remove"/>
             </div>

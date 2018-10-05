@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 import './Bike.css'
 
 class MyBike extends Component {
@@ -30,6 +30,7 @@ class MyBike extends Component {
     }
 
     handleSave() {
+        // console.log(this.props)
         this.props.updateBike(this.props.id, this.props.owner_id, this.props.brand, this.props.type, this.props.image, this.props.price, this.props.description);
         this.setState({ editing: false });
     }
@@ -44,10 +45,10 @@ class MyBike extends Component {
             <div className='mybike'>
                 <div className='bike-values'>
                     <div>
-                        <img src={this.props.image} />
+                        <img className='mybike-img' src={this.props.image} />
                     </div>
-                    <form>
-                        {this.state.editing ? (
+                    <form className='form'>
+                        {editing ? (
                             <div>
                                 {/* <input type="text" onChange={this.handleInput} value={this.state.editImage} /> */}
                                 <input type="text" name='editBrand' onChange={this.handleInput} value={this.state.editBrand} />
@@ -65,10 +66,10 @@ class MyBike extends Component {
                             )
 
                         }
-                        <input type="reset" />
+                        {/* <input type="reset" /> */}
+                    <button className = 'my-btns' onClick={editing ? this.handleSave : this.toggleEdit}>{editing ? 'Save' : 'Edit'}</button>
+                    <button className = 'my-btns' onClick={() => { this.props.deleteBike(id) }}>Delete</button>
                     </form>
-                    <button onClick={editing ? this.handleSave : this.toggleEdit}>{editing ? 'Save' : 'Edit'}</button>
-                    <button onClick={() => { this.props.deleteBike(id) }}>Delete</button>
                 </div>
 
             </div>

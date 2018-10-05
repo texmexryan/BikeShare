@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import routes from './routes'
 import Nav from './components/Nav/Nav'
+import Footer from './components/Footer/Footer'
 import './reset.css'
 
 class App extends Component {
@@ -12,10 +13,11 @@ class App extends Component {
       <div className="App">
 
         <Nav/>
-        <br/>
+        
 
         {routes}
-
+      
+      {/* <Footer/> */}
       </div>
     
     );

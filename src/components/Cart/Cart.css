@@ -15,8 +15,12 @@
     flex-direction: column; */
 }
 .cart-summary{
+    display: flex;
+    justify-content: center;
 position: relative;
-/* text-align: center; */
+margin-left: 200px;
+
+text-align: center;
 border: 1px black solid;
 }
 
