@@ -103,7 +103,7 @@ class Dashboard extends Component {
                 </div>
                 <div>
                     <h4 className = 'label'>Bike Description:</h4>
-                    <textarea  rows="7" cols="10"
+                    <textarea className='area'  rows="7" cols="10"
                         value = {this.state.bDescription}
                         onChange = {this.handleChange} 
                         name = 'bDescription'/>

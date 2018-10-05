@@ -54,10 +54,10 @@ class MyBike extends Component {
                                 <input type="text" name='editBrand' onChange={this.handleInput} value={this.state.editBrand} />
                                 <input type="text" name='editType' onChange={this.handleInput} value={this.state.editType} />
                                 <input type="text" name='editPrice' onChange={this.handleInput} value={this.state.editPrice} />
-                                <input type="text" name='editDesc' onChange={this.handleInput} value={this.state.editDesc} />
+                                <textarea type="text" name='editDesc' onChange={this.handleInput} value={this.state.editDesc} />
                             </div>
                         ) : (
-                                <div>
+                                <div className='edit-lines'>
                                     <h2>Brand: {this.props.brand}</h2>
                                     <h2>Type: {this.props.type}</h2>
                                     <h2>Rental Price: ${this.props.price}</h2>

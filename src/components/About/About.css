@@ -1,8 +1,9 @@
 .about-container{
     border: 1px solid black;
     padding: 10px;
-    color: black;
+    color: rgb(3, 25, 73);
     background-color: bisque;
-    top: 50%;
-    left: 50%;
+    top: 200px;
+    text-align: center;
+    position: absolute;
 }

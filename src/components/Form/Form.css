@@ -31,11 +31,11 @@
 .fInput:focus{
     background-color: lightblue;
 }
-textarea:focus{
+.area:focus{
     background-color: lightblue;
 }
 
-textarea {
+.area {
     width: 40%;
     padding: 12px 20px;
     margin: 8px 0;

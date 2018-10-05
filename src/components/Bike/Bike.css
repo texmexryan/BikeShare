@@ -98,9 +98,11 @@ margin: 14px;
     border-radius: 15%;
     font-family: 'Raleway', sans-serif;
     text-transform: uppercase;
-    transition-duration: 0.4s;
     cursor: pointer;
     }
     .my-btns:hover{
         box-shadow: 5px 5px rgb(77, 51, 51);
+    }
+    .edit-lines{
+        margin: 5px;
     }
