@@ -36,10 +36,10 @@
   "main": "server/server.js",
   "proxy": {
     "/api": {
-      "target": "http://localhost:4000"
+      "target": "http://localhost:4001"
     },
     "/auth": {
-      "target": "http://localhost:4000"
+      "target": "http://localhost:4001"
     }
   }
 }
