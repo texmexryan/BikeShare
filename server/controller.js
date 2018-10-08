@@ -106,7 +106,8 @@ module.exports = {
         console.log('shot fired!')
         let { id } = req.params
         const db = req.app.get('db')
-        db.delete_bike({ id })
+        let user_id = req.session.user.id
+        db.delete_bike({ id, user_id })
             .then(bikes => {
                 res.status(200).send(bikes)
             })
