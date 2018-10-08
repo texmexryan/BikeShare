@@ -32,10 +32,10 @@
     position: relative;
     height: 200px;
     width: auto;
-    margin-top: 194px;
+    margin-top: 170px;
     /* animation-name: bike; */
     
-    animation: bike 5s ease-in-out infinite; 
+    animation: bike 4s ease-in-out infinite; 
 }
 @keyframes bike {
     /* from{left: 0px;}

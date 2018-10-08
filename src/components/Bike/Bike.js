@@ -23,9 +23,11 @@ class Bike extends Component {
                 <div className= 'bike-item'>
            <Link to = {`/bike/${id}`} ><img className = 'bike-img' src={this.props.image}/></Link>
            {/* <img src={this.props.image}/> */}
-            <h2>Brand: {this.props.brand}</h2>
-             <h2>Type: {this.props.type}</h2>   
-            <h2>Rental Price: ${this.props.price}</h2>
+           <div className='bike-text'>
+            <h2><span className='bold'>Brand:</span> {this.props.brand}</h2>
+             <h2><span className='bold'>Type: </span>{this.props.type}</h2>   
+            <h2><span className='bold'>Daily Rental Price:</span> ${this.props.price}</h2>
+            </div>
             {/* <h4>Description: {this.props.description}</h4> */}
             {/* <button onClick={() => props.deleteBike(props.id) }>Delete</button> */}
             {/* <button onClick={() => this.props.addCart(this.props.id)}>Add to Cart</button> */}

@@ -7,7 +7,10 @@ import Form from './components/Form/Form'
 import Cart from './components/Cart/Cart'
 import BikeView from './components/Bike/BikeView'
 import About from './components/About/About'
+import Policy from './components/About/Policy'
 import Image from './components/Form/Image'
+import Faq from './components/About/Faq'
+import Claim from './components/About/Claim'
 
 
 
@@ -22,6 +25,9 @@ export default (
     <Route  path = '/bike/:id' component = {BikeView} />
     <Route path ='/cart' component = {Cart} />
     <Route path ='/about/howitworks' component = {About} />
+    <Route path ='/about/policies' component = {Policy} />
+    <Route path ='/about/faq' component = {Faq} />
+    <Route path ='/about/claim' component = {Claim} />
 
 
     <Route path ='/img' component = {Image} />

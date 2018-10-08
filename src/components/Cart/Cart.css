@@ -1,27 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+.cart-wrapper{
+   height: 100vh;
+}
 .cart{
     /* text-align: center; */
     display: flex;
     position: relative;
     flex-direction: column;
     align-content: space-around;
+    bottom: 20px;
     /* justify-content: space-around; */
-    top: 100px;
+   
 }
 
 .cart-table{
     text-align: center;
+    bottom: 200px;
     /* justify-content: center; */
     /* display: flex;
     flex-direction: column; */
 }
-.cart-summary{
-    display: flex;
-    justify-content: center;
-position: relative;
-margin-left: 200px;
-
-text-align: center;
+.checkout-summary{
+    /* display: flex; */
+    position: relative;
+    /* justify-content: center; */
+/* margin-left: 200px; */
+/* text-align: center; */
+margin-top: 20px;
 border: 1px black solid;
+
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    /* text-align: center; */
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    right: 105%;
+}
+
+.tooltip:hover .tiptext {
+    visibility: visible;
 }
 
 .basket{
@@ -29,17 +61,23 @@ border: solid black 1px;
 display: flex;
 justify-content: space-around;
 align-items: center;
+background-color: lightslategray;
+font-family:'Rubik' ;
+margin: 10px;
 
 }
 .img-brand{
 position: relative;
 text-align: center;
-border: 1px solid black;
+border: 2px solid black;
 margin: 5px;
-padding: 2px;
-
-
 }
+
+.brand-cart{
+background-color:lightblue;
+}
+
+
 .cart-delete{
 /* position: relative; */
 width: auto;
@@ -47,7 +85,9 @@ height: 35px;
 cursor: pointer;
 }
 .cart-delete:active {
-    height: 33px;
+    /* height: 33px; */
+    margin-top: 2px;
+    transform: scale(.88)
 }
 .cart-delete:hover{
     opacity: .72;

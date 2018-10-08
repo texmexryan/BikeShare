@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import ImageUploader from 'react-images-upload';
+// import ImageUploader from 'react-images-upload';
 import './Form.css'
 // import Image from './Image'
 
@@ -44,7 +44,10 @@ class Dashboard extends Component {
         .then(res => {
             // console.log(res.data)
         this.setState({bikes: res.data,
-        })})
+        })
+        this.props.history.push('/dashboard')
+    
+    })
         
       }
       onDrop(pic) {
@@ -63,7 +66,7 @@ class Dashboard extends Component {
         console.log('here is props', this.props, 'this is state', this.state)
         return ( 
             <div className='form-box'>   
-                <div className = 'form'>
+                <div className = 'new-form'>
                     <div>
                         <h4 className = 'label'>Image URL:</h4>
                         <input
@@ -81,11 +84,17 @@ class Dashboard extends Component {
                 
                 <div>
                     <h4 className = 'label'>Bike Type:</h4>
-                    <select name='bType' className="type" onChange = {this.handleChange} name="bType" >
+                    <select name='bType' className="type-select" onChange = {this.handleChange} name="bType" >
                         <option value=''></option>
                         <option value='Street Bike'>Street Bike</option>
                         <option value='Mountain Bike'>Mountain Bike</option>
                         <option value='Tandem'>Tandem</option>
+                        <option value='Cruiser'>Cruiser</option>
+                        <option value='Hybrid'>Hybrid</option>
+                        <option value='Fixed Gear'>Fixed Gear</option>
+                        <option value='Fat Tire'>Fat Tire</option>
+                        <option value='Electric'>Electric</option>
+                        <option value='Kids'>Kids</option>
                         <option value='Other'>Other</option>
                     </select>
                     {/* <input
@@ -108,8 +117,8 @@ class Dashboard extends Component {
                         onChange = {this.handleChange} 
                         name = 'bDescription'/>
                 </div>
-                <div>
-            <ImageUploader
+                
+            {/* <ImageUploader
                 	withIcon={true}
                 	buttonText='Choose images'
                 	onChange={this.onDrop}
@@ -118,16 +127,16 @@ class Dashboard extends Component {
                     value = {this.state.bImage}
                     // value={this.props.bImage}
                     name = 'bImage'
-            />
+            /> */}
 			
 			
-			</div>
-                <br/>
+			
+                
             { 
             this.state.bBrand.length > 0 && this.state.bImage.length > 0 && this.state.bPrice.length > 0 && this.state.bImage.length > 0 && this.state.bType.length > 0
             ?
             // (<img className='upload' src={this.state.bImage} alt="preview"/>)
-            <Link to = './dashboard'><button className = 'button2'  onClick = {this.addBike}>List Your Ride!</button></Link>
+            <button className = 'button2'  onClick = {this.addBike}>List Your Ride!</button>
             :
             <button className = 'button2'  onClick = {this.handleForm}>List Your Ride!</button>
                 // (null) 

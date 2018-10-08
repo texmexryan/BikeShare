@@ -52,13 +52,14 @@ class BikeView extends Component {
         return (
 
             <div key = {i} className = 'single-bike'>
-                <h1 className='pick-dates-text'>Pick days you would like to use bike</h1>
-                <img className='bike-img' src={image} alt="bike"/>
+                <h1 className='pick-dates-text'>- Pick days you would like to use bike -</h1>
+                
+                <img className='bikeview-img' src={image} alt="bike"/>
                 <div className='single-info'>
-                <h4>Brand: {brand}</h4>
-                <h4>Bike Type: {type}</h4>
-                <h4>Price: {price}</h4>
-                <h4>Description: {description}</h4>
+                <h4><span className='bold'>Brand:</span> {brand}</h4>
+                <h4><span className='bold'>Bike Type:</span> {type}</h4>
+                <h4><span className='bold'>Price/day:</span> ${price}</h4>
+                <h4><span className='bold'>Description:</span> {description}</h4>
                 </div>
                 <br/>
 

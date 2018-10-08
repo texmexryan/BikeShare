@@ -39,12 +39,15 @@ let {itemsInCart} = this.props;
         } else {
             
         return (
-                
+    <div>
     <div className = 'nav'>
     <section>
     <img className ='logo-header' src={logo} alt=""/>
     <h1 className = 'h'>BIKE-SHARE</h1>
+    
+    
     </section>
+    <h2 className='motto m'>'Save cash. Consume less. Share.'</h2>
     <div className = 'nav-links'>
 
     <Link className = 'nav-text' to = '/dashboard'> Home </Link>
@@ -55,12 +58,12 @@ let {itemsInCart} = this.props;
 
     
     <div className= 'dropdown'>
-    <Link className = 'nav-text' to = '/about'>About </Link>
+    <span className = 'nav-text' to = '/about'>About </span>
     {/* <br/> */}
         <div className = 'dropdown-content'>
            <Link to='/about/howitworks' ><h2>How It works</h2></Link>
             
-            <h2>Policies</h2>
+            <Link to = '/about/policies'><h2>Policies</h2> </Link>
 
         </div>
 
@@ -75,13 +78,13 @@ let {itemsInCart} = this.props;
     
     <Link to = '/cart'><h6 className = 'cart-num'>{itemsInCart}</h6></Link>
     
-    <Link className = 'nav-post' to = '/new'><Link to = '/about'></Link>Post Bike</Link>
+    <Link className = 'nav-post' to = '/new'>Post Bike</Link>
     
     </div>
 
     </div>
-
-
+    <div className='space'></div>
+    </div>
     )
 }
 }

@@ -15,6 +15,7 @@ class Dashboard extends Component {
         }
         //  this.deleteBike = this.deleteBike.bind(this)
         //  this.addCart = this.addCart.bind(this)
+        this.sorted = this.sorted.bind(this)
     }
 
 
@@ -37,7 +38,13 @@ class Dashboard extends Component {
     //     })
     //     }
 
-
+    sorted(){
+        axios.get(`/api/bikes/sorted`).then((res) => {
+            this.setState({
+                bikes:res.data
+            })
+        })
+    }
 
 
 
@@ -74,6 +81,9 @@ class Dashboard extends Component {
         return (
         <div className = 'body-dash'>
 
+            <div className='sort'>
+                <button className='sort-btn' onClick ={this.sorted}>Sort: Lowest Price</button>
+            </div>
             {/* <div className='container'> */}
                 <div className='bikes'>
 

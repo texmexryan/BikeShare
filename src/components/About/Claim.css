@@ -1,10 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
 .form-box {
     position: relative;
     /* top: 10px; */
     text-align: center;
-    background-image: url('./bike-dash.png');
+    background-color: lightslategray;
     background-repeat: repeat;
     background-position: center;
     /* background-size: auto; */
@@ -18,24 +16,12 @@
     top: 15px;
 }
 
-.fInput{
-    width: 40%;
-    padding: 12px 20px;
-    margin: 12px 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    border: 2px solid rgb(47, 36, 202);
-    border-radius: 4px;
-    font-size: 15px;
-}
-.fInput:focus{
-    background-color: lightblue;
-}
+
 .area:focus{
     background-color: lightblue;
 }
 
-.area {
+.area-claim {
     width: 40%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -44,6 +30,7 @@
     border: 2px solid rgb(47, 36, 202);
     border-radius: 4px;
     font-size: 15px;
+    margin-bottom: 20px;
 }
 
 .label {
@@ -59,7 +46,7 @@
     /* transform: translateX(17%) */
 
 }
-.button2 {
+.button3 {
     background-color: rgb(36, 87, 230);
     border: none;
     color: white;
@@ -72,30 +59,12 @@
     font-size: 16px;
     width: 30%;
 }
-.button2:hover{
+.button3:hover{
     background-color: rgb(26, 52, 73);
     box-shadow: 3px 3px gray;
 }
-.button2:active{
+.button3:active{
     /* width: 29%;
     height: auto; */
     font-size: 15px;
-}
-
-.type-select{
-    width: 40%;
-    padding: 12px 20px;
-    margin: 13px 0;
-    font-family: sans-serif;
-    box-sizing: border-box;
-    border: 2px solid rgb(47, 36, 202);
-    border-radius: 4px;
-    font-size: 15px;
-    text-align: center;
-}
-.upload{
-    height: 30px;
-    width: 100vw;
-    border: 2px solid black;
-
 }

@@ -1,3 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
 .body-dash{
     background-image: url('./blue.jpg');
     background-repeat: no-repeat;
@@ -6,11 +10,32 @@
     
     background-attachment: fixed;
     
-    position: absolute;
-    top: 50px;
-
+    position: relative;
+    /* top: 10px; */
+    margin-bottom: 50px; 
+}
+.sort{
+    position: relative;
+    /* text-align: center; */
+    /* width: 100px; */
+    /* padding: 2px; */
     
+    left: 55px;
+    top: 30px;
+    /* border: black 1px solid; */
     
+}
+.sort-btn{
+    border-radius: 10px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+.sort-btn:active{
+background-color: black;
+color: white;
+transform: scale(.89)
 }
 
 .container {
@@ -37,8 +62,7 @@ margin: 5px;
 flex-wrap: wrap;
 margin-top: 50px;
 position: relative;
-
-/* float: left;
-margin: 0px 20px 20px 0px; */
+/* max-width: 1200px; */
+/* flex: 0 0 33.3333%; */
 
 }

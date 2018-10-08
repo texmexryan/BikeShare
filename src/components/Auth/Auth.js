@@ -16,11 +16,7 @@ class Auth extends Component {
         //getting this below:  'http://localhost:3005/auth/callback
         let url = `${encodeURIComponent(window.location.origin)}/auth/callback`
         window.location = `https://${REACT_APP_DOMAIN}/authorize?client_id=${REACT_APP_CLIENT_ID}&scope=openid%20profile%20email&redirect_uri=${url}&response_type=code`
-        var options = {
-            theme: {
-              logo: {logo}
-            }
-          };
+       
     }
 
 

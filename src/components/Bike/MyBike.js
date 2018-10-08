@@ -31,7 +31,7 @@ class MyBike extends Component {
 
     handleSave() {
         // console.log(this.props)
-        this.props.updateBike(this.props.id, this.props.owner_id, this.props.brand, this.props.type, this.props.image, this.props.price, this.props.description);
+        this.props.updateBike(this.props.id, this.state.editBrand, this.state.editType, this.state.editPrice, this.state.editDesc);
         this.setState({ editing: false });
     }
 
@@ -39,37 +39,45 @@ class MyBike extends Component {
 
 
     render() {
+        // console.log('staaaaate',this.state)
+
         let { editing } = this.state;
         let { id } = this.props;
         return (
             <div className='mybike'>
                 <div className='bike-values'>
-                    <div>
+                    
                         <img className='mybike-img' src={this.props.image} />
-                    </div>
-                    <form className='form'>
+                    
+                    <div className='form'>
                         {editing ? (
                             <div>
                                 {/* <input type="text" onChange={this.handleInput} value={this.state.editImage} /> */}
-                                <input type="text" name='editBrand' onChange={this.handleInput} value={this.state.editBrand} />
-                                <input type="text" name='editType' onChange={this.handleInput} value={this.state.editType} />
-                                <input type="text" name='editPrice' onChange={this.handleInput} value={this.state.editPrice} />
-                                <textarea type="text" name='editDesc' onChange={this.handleInput} value={this.state.editDesc} />
+                                <input className='edit-input'type="text" name='editBrand' onChange={this.handleInput} value={this.state.editBrand} />
+                                <input className='edit-input'type="text" name='editType' onChange={this.handleInput} value={this.state.editType} />
+                                <input className='edit-input'type="text" name='editPrice' onChange={this.handleInput} value={this.state.editPrice} />
+                                <textarea className='edit-input-area' type="text" name='editDesc' onChange={this.handleInput} value={this.state.editDesc} />
                             </div>
                         ) : (
-                                <div className='edit-lines'>
-                                    <h2>Brand: {this.props.brand}</h2>
-                                    <h2>Type: {this.props.type}</h2>
-                                    <h2>Rental Price: ${this.props.price}</h2>
-                                    <h3>Description: {this.props.description}</h3>
+                                <div >
+                                    <h2><span className='bold'>Brand:</span> {this.props.brand}</h2>
+                                    <hr/>
+                                    <h2><span className='bold'>Type:</span> {this.props.type}</h2>
+                                    <hr/>
+                                    <h2><span className='bold'>Rental Price: </span> ${this.props.price}</h2>
+                                    <hr/>
+                                    <h3><span className='bold'>Description:</span>  {this.props.description}</h3>
+                                    <hr/>
                                 </div>
                             )
 
                         }
                         {/* <input type="reset" /> */}
+                        <span>
                     <button className = 'my-btns' onClick={editing ? this.handleSave : this.toggleEdit}>{editing ? 'Save' : 'Edit'}</button>
                     <button className = 'my-btns' onClick={() => { this.props.deleteBike(id) }}>Delete</button>
-                    </form>
+                    </span>
+                    </div>
                 </div>
 
             </div>

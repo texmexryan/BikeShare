@@ -33,10 +33,11 @@ class Profile extends Component {
             })
     }
 
-    updateBike(id, owner_id, brand, type, image, price, description) {
-        axios.put(`/api/bike/${id}`, { brand: brand, owner_id: owner_id, type: type, image: image, price: price, description: description })
+    updateBike(id, brand, type, price, description) {
+        // console.log(id, brand, type, price, description)
+        axios.put(`/api/bike/${id}`, { brand: brand, type: type, price: price, description: description })
             .then(res => {
-                // console.log(res.data)
+
                 this.setState({ bikes: res.data })
             })
     }
@@ -90,10 +91,12 @@ class Profile extends Component {
                             <div className='circle'>
                                 <img className='profile-img' src={picture} alt="" />
                             </div>
-                                {/* <div className = 'pp'> */}
+                            <div>
                             <p>Welcome {username}!</p>
-                            
+                            </div>
+                            <div>
                             <p>Email: {email}</p>
+                            </div>
                             
                             
                         </div>

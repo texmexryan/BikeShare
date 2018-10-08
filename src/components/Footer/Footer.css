@@ -1,31 +1,40 @@
-/* .footer{
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+.footer{
   background-image: linear-gradient(to top, azure, rgb(109, 105, 105));
   height: 7vh;
-  /* display: flex;
-  justify-content: space-evenly; */
-  /* align-items: center; 
+   display: flex;
+   /* flex-direction: column; */
+  justify-content: space-between; 
+  align-items: center; 
   border-top: solid 1px black;
-
+    
   position: fixed;
     left: 0;
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     color: rgb(20, 10, 10);
-    text-align: center;
 }
-  div {
+  .foot-div {
     display: flex;
-    justify-content: center;
+    justify-content: center space-evenly;
+    /* justify-content: space-between; */
+    flex-direction: column;
   }
   ul {
-    display: flex
+    display: flex;
   }
-  li {
-    font-size: 12px;
-    list-style: none;
+  
+  .li-contact{
     margin: 0px 20px;
+    list-style: none;
   }
   .link-footer {
     margin: 0px 30px;
     list-style: none;
-  } */
+   
+    font-family: 'Rubik', sans-serif;
+  } 
+  .link-footer .link-footer:visted{
+      color: gray;
+  }

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import axios from 'axios'
-import logo from '../Auth/bike.svg'
+import logo from '../Auth/generated.svg'
 import removeX from './x-button.svg'
 import {connect} from 'react-redux'
 import {addToCart} from '../../ducks/reducer'
@@ -26,9 +26,9 @@ class Cart extends Component {
         this.deleteCart = this.deleteCart.bind(this)
     }
 
-    async componentDidMount(){
+     componentDidMount(){
         // if (cartItems[0]) {
-            await axios.get(`/api/cart`).then((res) =>{
+             axios.get(`/api/cart`).then((res) =>{
             let sub = 0;
             let copyCart = res.data.map(e=>{
             let a = moment(e.start_date)
@@ -103,7 +103,7 @@ class Cart extends Component {
             <section key={i} className="basket">
             <div className='img-brand'>
                 <img className="bike_img" src={image} alt="cart_bike" />
-            <p>Brand: {brand}</p>
+            <p className='bold brand-cart'> {brand}</p>
             </div>
             <p>Amount of Days: {info.time}</p>
             <p>Total Cost: ${info.total}
@@ -117,19 +117,18 @@ class Cart extends Component {
     })
     
         return (
-            <div className="cart">
+            <div className="cart cart-wrapper">
                 {/* <h1>MY CART</h1> */}
             <div className="cart-table">
-                <h1>Selected Rentals:</h1>
-                <div>
+                <h1 className='bold'>Selected Rentals:</h1>
                     {displayCart}
-                </div>
-            </div>
-
                 <div  className="checkout-summary">
-                <h3>Cart Summary</h3>
+                <h3><span className='bold'>Cart Summary</span></h3>
                 <h4>Subtotal:${subtotal.toFixed(2)}</h4>
-                <h4>Platform Fee: {fee}% </h4>
+                <h4 className='tooltip'>Platform Fee: {fee}% (what's this?)
+                <span className='tiptext'>Small fee to help us out for hosting a place to share/process your bike.</span>
+                </h4>
+                <br/>
                 <h4>Total:${(amount + (amount * .1)).toFixed(2)} </h4>
 
 
@@ -141,7 +140,9 @@ class Cart extends Component {
                 stripeKey={process.env.REACT_APP_STRIPE_KEY}
                 amount={(amount + (amount * .1)) * 100}
             />
-                </div>            
+                </div>
+            </div>
+
             </div>
           );
     }
