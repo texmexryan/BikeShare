@@ -27,6 +27,7 @@ class Claim extends Component {
     handleForm = () => {
         
         alert('Claim has been submitted. Thank you.')
+        this.props.history.push('/profile')
        
 
     }
